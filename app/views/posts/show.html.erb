@@ -1,0 +1,38 @@
+<div class="PageTitle">
+    <h3>予定の詳細ページ</h3>
+</div>
+
+<p>タイトル：<%= @post.title%></p>
+
+<table>
+    <tr>
+        <th>開始日</th>
+        <td><%= @post.start_at.strftime('%Y/%m/%d')%></td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td><%= @post.end_at.strftime('%Y/%m/%d')%></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td>
+        <% if @post.all_day == true%>
+            ◯
+        <% else @post.all_day == false%>
+
+        <% end %>
+        </td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @post.memo%></td>
+    </tr>
+</table>
+
+<div class="BackButton">
+    <a href="index" class="btn">⬅︎一覧に戻る</a>
+</div>
+
+<div class="EditButton">
+    <%= link_to "編集する", [:edit_post], class: 'btn'%>
+</div>
